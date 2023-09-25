@@ -1,3 +1,173 @@
-body {
+:root {
+  --font-primary: "Open Sans", sans-serif;
+  --font-size-900: 3.75rem; // 60px
+  --font-size-800: 3rem; // 48px
+  --font-size-600: 1.5rem; // 24px
+  --font-size-500: 1.3125rem; // 21px
+  --font-size-400: 1.125rem; // 18px
+  --font-weight-400: 400;
+  --font-weight-700: 700;
+  --spacing-8: 0.5rem;
+  --spacing-12: 0.75rem;
+  --spacing-16: 1rem;
+  --spacing-20: 1.25rem;
+  --spacing-32: 2rem;
+  --spacing-36: 2.25rem;
+}
+
+// colors
+$color-neutral-100: #fff;
+$color-neutral-900: #1f3049;
+$color-primary-400: #0066ff;
+
+// font family
+$ff-sans: var(--font-primary);
+
+// font sizes
+$fs-900: var(--font-size-900);
+$fs-800: var(--font-size-800);
+$fs-600: var(--font-size-600);
+$fs-500: var(--font-size-500);
+$fs-400: var(--font-size-400);
+
+// font weights
+$fw-400: var(--font-weight-400);
+$fw-700: var(--font-weight-700);
+
+// size/spacing values (Including the border-width)
+$spacing-8: var(--spacing-8);
+$spacing-12: var(--spacing-12); // (not in design)
+$spacing-16: var(--spacing-16);
+$spacing-20: var(--spacing-20);
+$spacing-32: var(--spacing-32);
+$spacing-36: var(--spacing-36);
+
+// text align
+$text-center: center;
+
+// list items
+$list-divider-primary: 1px solid $color-primary-400;
+$list-divider-neutral: 1px solid rgb($color-neutral-900, 20%);
+
+// buttons
+$button-padding-default: $spacing-16 calc($spacing-16 * 1.5);
+
+// simple reset
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
   margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-size: $fs-400;
+  font-weight: $fw-400;
+  color: $color-neutral-900;
+  background-color: $color-neutral-100;
+  font-family: $ff-sans;
+}
+
+.container {
+  width: min(
+    100% - 2rem,
+    60rem
+  ); // width: 100%; padding-inline: 1rem; max-width: 60rem;
+  margin-inline: auto;
+}
+
+.page-title {
+  font-size: $fs-900;
+  margin-block: $spacing-32;
+  color: $color-primary-400;
+  text-align: $text-center;
+}
+
+.pricing-plans {
+  display: flex;
+  border: $spacing-8 solid $color-primary-400;
+}
+
+.tier {
+  flex: 1;
+  padding: $spacing-36;
+  text-align: $text-center;
+
+  &__title {
+    font-weight: $fw-700;
+    font-size: $fs-500;
+    color: $color-primary-400;
+  }
+
+  &__feature-list {
+    color: $color-neutral-900;
+  }
+
+  &__list-item {
+    padding-block: $spacing-20;
+  }
+
+  &__list-item + &__list-item {
+    border-top: $list-divider-neutral;
+  }
+
+  &__price {
+    font-size: $fs-800;
+    font-weight: $fw-700;
+    margin-bottom: $spacing-20;
+
+    span {
+      font-size: $fs-600;
+      font-weight: $fw-400;
+    }
+  }
+
+  &--highlighted,
+  &--highlighted &__title,
+  &--highlighted &__feature-list {
+    color: $color-neutral-100;
+    background: $color-primary-400;
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: $button-padding-default;
+  text-transform: uppercase;
+  font-size: $fs-400;
+  font-weight: $fw-700;
+
+  &--primary {
+    background: $color-primary-400;
+    color: $color-neutral-100;
+  }
+
+  &--secondary {
+    background: $color-neutral-100;
+    color: $color-primary-400;
+  }
 }
